@@ -3,4 +3,11 @@
     <string name="btn_send_text">Отправить</string>
     <string name="input_msg_discr">Сообщение</string>
     <string name="btn_qr_text">Считать QR код</string>
+    <string name="et_mail_hint">Введите email учетной записи Pushover</string>
+    <string name="et_pass_hint">Введите пароль</string>
+    <string name="et_div_name_hint">Введите имя новго устройства</string>
+    <string name="btn_check_text">Проверить</string>
+    <string name="btn_reg_text">Зарегистрировать</string>
+    <string name="btn_send_later_text">Отправить позже</string>
+    <string name="btn_history_text">История</string>
 </resources>

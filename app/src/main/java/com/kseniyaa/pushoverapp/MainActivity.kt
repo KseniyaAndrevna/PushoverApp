@@ -26,8 +26,12 @@ class MainActivity : AppCompatActivity() {
         api = (application as App).api
 
         btn_send.setOnClickListener {
-            msg = Msg(APP_KEY, USER_KEY, et_msg.text.toString())
-            send()
+            if (!et_msg.text?.isEmpty()!!) {
+                msg = Msg(APP_KEY, USER_KEY, et_msg.text.toString())
+                send()
+            } else {
+                toast("Сообщение не написано")
+            }
         }
 
         btn_qr_read.setOnClickListener {
@@ -37,9 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         btn_history.setOnClickListener {
             loadMsg()
-
         }
-        
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -58,7 +60,8 @@ class MainActivity : AppCompatActivity() {
         call?.enqueue(object : Callback<Msg> {
 
             override fun onResponse(call: Call<Msg>, response: Response<Msg>) {
-                toast()
+                toast("Сообщение отправлено")
+                et_msg.setText("")
             }
 
             override fun onFailure(call: Call<Msg>, t: Throwable) {
@@ -89,8 +92,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun toast() {
-        Toast.makeText(this, "Сообщение отправлено", Toast.LENGTH_SHORT).show()
+    private fun toast(text: String) {
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
     }
 
     companion object {

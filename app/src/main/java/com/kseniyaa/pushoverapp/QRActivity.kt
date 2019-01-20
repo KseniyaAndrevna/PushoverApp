@@ -11,17 +11,16 @@ import xyz.belvi.mobilevisionbarcodescanner.BarcodeRetriever
 
 class QRActivity : AppCompatActivity(), BarcodeRetriever {
 
-  // private lateinit var barcodeCapture: BarcodeCapture
-    private lateinit var barcode: BarcodeCapture
+    private lateinit var barcodeCapture: BarcodeCapture
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qr)
 
-//        barcodeCapture = (supportFragmentManager.findFragmentById(R.id.barcode) as BarcodeCapture?)!!
-//        barcodeCapture.setRetrieval(this)
+        barcodeCapture = (supportFragmentManager.findFragmentById(R.id.barcode) as BarcodeCapture?)!!
+        barcodeCapture.setRetrieval(this)
 
-        barcode.setRetrieval(this)
+
     }
 
     override fun onRetrieved(barcode: Barcode?) {
